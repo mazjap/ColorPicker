@@ -1,21 +1,14 @@
-//
-//  Persistence.swift
-//  ColorPicker
-//
-//  Created by Jordan Christensen on 3/7/23.
-//
-
 import CoreData
+import Cocoa
 
-struct PersistenceController {
-    static let shared = PersistenceController()
+struct Persistence {
+    static let shared = Persistence()
 
-    static var preview: PersistenceController = {
-        let result = PersistenceController(inMemory: true)
+    static var preview: Persistence = {
+        let result = Persistence(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            _ = CDColor(color: NSColor.red, context: viewContext)
         }
         do {
             try viewContext.save()

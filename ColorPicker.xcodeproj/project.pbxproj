@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E45029929B7DAF0005F15DE /* ColorPickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E45029829B7DAF0005F15DE /* ColorPickerApp.swift */; };
-		0E45029B29B7DAF0005F15DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E45029A29B7DAF0005F15DE /* ContentView.swift */; };
 		0E45029D29B7DAF1005F15DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E45029C29B7DAF1005F15DE /* Assets.xcassets */; };
 		0E4502A029B7DAF1005F15DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E45029F29B7DAF1005F15DE /* Preview Assets.xcassets */; };
 		0E4502A229B7DAF1005F15DE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4502A129B7DAF1005F15DE /* Persistence.swift */; };
@@ -16,6 +15,10 @@
 		0E4502B029B7DAF1005F15DE /* ColorPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4502AF29B7DAF1005F15DE /* ColorPickerTests.swift */; };
 		0E4502BA29B7DAF1005F15DE /* ColorPickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4502B929B7DAF1005F15DE /* ColorPickerUITests.swift */; };
 		0E4502BC29B7DAF1005F15DE /* ColorPickerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4502BB29B7DAF1005F15DE /* ColorPickerUITestsLaunchTests.swift */; };
+		0E46EA7A29BD8E4C00F0A293 /* MenuBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46EA7929BD8E4C00F0A293 /* MenuBarContentView.swift */; };
+		0E46EA7C29BD8F5100F0A293 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46EA7B29BD8F5100F0A293 /* Constants.swift */; };
+		0E46EA8629BE4D6700F0A293 /* CDColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46EA8529BE4D6700F0A293 /* CDColor.swift */; };
+		0E46EA8D29BE761100F0A293 /* NSColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46EA8C29BE761100F0A293 /* NSColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,6 @@
 /* Begin PBXFileReference section */
 		0E45029529B7DAF0005F15DE /* ColorPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E45029829B7DAF0005F15DE /* ColorPickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerApp.swift; sourceTree = "<group>"; };
-		0E45029A29B7DAF0005F15DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0E45029C29B7DAF1005F15DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E45029F29B7DAF1005F15DE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E4502A129B7DAF1005F15DE /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		0E4502B529B7DAF1005F15DE /* ColorPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E4502B929B7DAF1005F15DE /* ColorPickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerUITests.swift; sourceTree = "<group>"; };
 		0E4502BB29B7DAF1005F15DE /* ColorPickerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0E46EA7929BD8E4C00F0A293 /* MenuBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarContentView.swift; sourceTree = "<group>"; };
+		0E46EA7B29BD8F5100F0A293 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0E46EA8529BE4D6700F0A293 /* CDColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDColor.swift; sourceTree = "<group>"; };
+		0E46EA8C29BE761100F0A293 /* NSColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +105,11 @@
 		0E45029729B7DAF0005F15DE /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
-				0E45029829B7DAF0005F15DE /* ColorPickerApp.swift */,
-				0E45029A29B7DAF0005F15DE /* ContentView.swift */,
-				0E45029C29B7DAF1005F15DE /* Assets.xcassets */,
-				0E4502A129B7DAF1005F15DE /* Persistence.swift */,
-				0E4502A629B7DAF1005F15DE /* ColorPicker.entitlements */,
-				0E4502A329B7DAF1005F15DE /* ColorPicker.xcdatamodeld */,
+				0E46EA8829BE52AD00F0A293 /* Resources */,
+				0E46EA8929BE52D400F0A293 /* Views */,
+				0E46EA8A29BE52DE00F0A293 /* Managers */,
+				0E46EA8729BE529900F0A293 /* CoreData */,
+				0E46EA8B29BE52EB00F0A293 /* Helpers */,
 				0E45029E29B7DAF1005F15DE /* Preview Content */,
 			);
 			path = ColorPicker;
@@ -133,6 +138,50 @@
 				0E4502BB29B7DAF1005F15DE /* ColorPickerUITestsLaunchTests.swift */,
 			);
 			path = ColorPickerUITests;
+			sourceTree = "<group>";
+		};
+		0E46EA8729BE529900F0A293 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0E4502A329B7DAF1005F15DE /* ColorPicker.xcdatamodeld */,
+				0E46EA8529BE4D6700F0A293 /* CDColor.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0E46EA8829BE52AD00F0A293 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0E45029829B7DAF0005F15DE /* ColorPickerApp.swift */,
+				0E45029C29B7DAF1005F15DE /* Assets.xcassets */,
+				0E4502A629B7DAF1005F15DE /* ColorPicker.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0E46EA8929BE52D400F0A293 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E46EA7929BD8E4C00F0A293 /* MenuBarContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0E46EA8A29BE52DE00F0A293 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0E4502A129B7DAF1005F15DE /* Persistence.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		0E46EA8B29BE52EB00F0A293 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0E46EA7B29BD8F5100F0A293 /* Constants.swift */,
+				0E46EA8C29BE761100F0A293 /* NSColor+Extension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +316,11 @@
 			files = (
 				0E4502A229B7DAF1005F15DE /* Persistence.swift in Sources */,
 				0E4502A529B7DAF1005F15DE /* ColorPicker.xcdatamodeld in Sources */,
-				0E45029B29B7DAF0005F15DE /* ContentView.swift in Sources */,
+				0E46EA8D29BE761100F0A293 /* NSColor+Extension.swift in Sources */,
+				0E46EA7A29BD8E4C00F0A293 /* MenuBarContentView.swift in Sources */,
 				0E45029929B7DAF0005F15DE /* ColorPickerApp.swift in Sources */,
+				0E46EA7C29BD8F5100F0A293 /* Constants.swift in Sources */,
+				0E46EA8629BE4D6700F0A293 /* CDColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +475,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ColorPicker/ColorPicker.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ColorPicker/Resources/ColorPicker.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -432,6 +485,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,7 +504,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = ColorPicker/ColorPicker.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ColorPicker/Resources/ColorPicker.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -459,6 +514,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
