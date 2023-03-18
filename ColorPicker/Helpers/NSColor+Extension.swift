@@ -71,10 +71,6 @@ extension NSColor {
         let blue = String(UInt8(blueComponent * max), radix: 16, uppercase: true)
         let alpha = String(UInt8(alphaComponent * max), radix: 16, uppercase: true)
         
-        return "#\(red)\(green)\(blue)\(alpha)"
-    }
-    
-    static var random: NSColor {
-        [NSColor.red, .blue, .green, .purple, .orange, .white, .black, .brown, .clear, .cyan, .gray].randomElement() ?? .magenta
+        return "#\(red)\(green)\(blue)\(alpha == "FF" ? "" : alpha)"
     }
 }

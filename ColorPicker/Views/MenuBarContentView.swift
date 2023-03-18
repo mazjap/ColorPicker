@@ -2,12 +2,18 @@ import SwiftUI
 
 struct MenuBarContentView: View {
     @EnvironmentObject private var colorManager: ColorManager
+    @Environment(\.managedObjectContext) private var context
     @FetchRequest(sortDescriptors: [SortDescriptor(\CDColor.dateAdded, order: .reverse)])
     private var colors: FetchedResults<CDColor>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\Palette.name, order: .reverse)])
+    private var palettes: FetchedResults<Palette>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\ExportFormat.name, order: .reverse)])
+    private var formats: FetchedResults<ExportFormat>
     @AppStorage(Constants.recentColorKey) private var mostRecentColor: String = "#FFFFFF"
     @State private var colorPickerSelection = Color.white
-    @Environment(\.managedObjectContext) private var context
+    
     private let colorCellSize = 24.0
+    private let colorBorderSize = 1.0
     private var colorSampler: NSColorSampler { Self.colorSampler }
     
     var body: some View {
@@ -22,14 +28,23 @@ struct MenuBarContentView: View {
                     
                     LazyVGrid(columns: .init(repeating: .init(.fixed(colorCellSize), spacing: 0), count: columnCount)) {
                         ForEach(colors.prefix(rowCount * columnCount), id: \.color.hexString) { color in
-                            Color(color.color)
+                            
+                            let nsColor = color.color
+                            
+                            Color(nsColor)
                                 .frame(width: colorCellSize, height: colorCellSize)
+                                .border(Color.white, width: colorBorderSize)
+                                .onTapGesture {
+                                    let pasteboard = NSPasteboard.general
+                                    pasteboard.declareTypes([.string], owner: nil)
+                                    pasteboard.setString(nsColor.hexString, forType: .string)
+                                }
                         }
                     }
                 }
                 
                 Button {
-                    colorSampler.show { color in
+                    colorSampler.show { @MainActor color in
                         guard let color else { return }
                         mostRecentColor = color.hexString
                         do {

@@ -1,5 +1,5 @@
 import CoreData
-import Cocoa
+import AppKit.NSColor
 
 struct Persistence {
     static let shared = Persistence()
@@ -7,9 +7,7 @@ struct Persistence {
     static var preview: Persistence = {
         let result = Persistence(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let color = NSColor.random
-            
+        for color in [NSColor.red, .blue, .green, .purple, .orange, .white, .black, .brown, .clear, .cyan, .gray] {
             _ = CDColor(srgb: CDColor.srgbFrom(color: color), name: color.accessibilityName, context: viewContext)
         }
         do {
@@ -23,10 +21,10 @@ struct Persistence {
         return result
     }()
 
-    let container: NSPersistentCloudKitContainer
+    let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        container = NSPersistentCloudKitContainer(name: "ColorPicker")
+        container = NSPersistentContainer(name: "ColorPicker")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }

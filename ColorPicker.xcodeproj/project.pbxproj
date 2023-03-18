@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E28E41729C58FFA00E6A426 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28E41629C58FFA00E6A426 /* ColorManager.swift */; };
+		0E28E41929C59D2200E6A426 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28E41829C59D2200E6A426 /* Palette.swift */; };
 		0E45029929B7DAF0005F15DE /* ColorPickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E45029829B7DAF0005F15DE /* ColorPickerApp.swift */; };
 		0E45029D29B7DAF1005F15DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E45029C29B7DAF1005F15DE /* Assets.xcassets */; };
 		0E4502A029B7DAF1005F15DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E45029F29B7DAF1005F15DE /* Preview Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		0E46EA7C29BD8F5100F0A293 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46EA7B29BD8F5100F0A293 /* Constants.swift */; };
 		0E46EA8629BE4D6700F0A293 /* CDColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46EA8529BE4D6700F0A293 /* CDColor.swift */; };
 		0E46EA8D29BE761100F0A293 /* NSColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E46EA8C29BE761100F0A293 /* NSColor+Extension.swift */; };
+		0EB0AC3629C5A7FB00225A41 /* ExportFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0AC3529C5A7FB00225A41 /* ExportFormat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 /* Begin PBXFileReference section */
 		0E28E41529C5720300E6A426 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0E28E41629C58FFA00E6A426 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
+		0E28E41829C59D2200E6A426 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		0E45029529B7DAF0005F15DE /* ColorPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E45029829B7DAF0005F15DE /* ColorPickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerApp.swift; sourceTree = "<group>"; };
 		0E45029C29B7DAF1005F15DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		0E46EA7B29BD8F5100F0A293 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0E46EA8529BE4D6700F0A293 /* CDColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDColor.swift; sourceTree = "<group>"; };
 		0E46EA8C29BE761100F0A293 /* NSColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Extension.swift"; sourceTree = "<group>"; };
+		0EB0AC3529C5A7FB00225A41 /* ExportFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportFormat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,8 @@
 			children = (
 				0E4502A329B7DAF1005F15DE /* ColorPicker.xcdatamodeld */,
 				0E46EA8529BE4D6700F0A293 /* CDColor.swift */,
+				0E28E41829C59D2200E6A426 /* Palette.swift */,
+				0EB0AC3529C5A7FB00225A41 /* ExportFormat.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -321,7 +327,9 @@
 			files = (
 				0E4502A229B7DAF1005F15DE /* Persistence.swift in Sources */,
 				0E4502A529B7DAF1005F15DE /* ColorPicker.xcdatamodeld in Sources */,
+				0EB0AC3629C5A7FB00225A41 /* ExportFormat.swift in Sources */,
 				0E46EA8D29BE761100F0A293 /* NSColor+Extension.swift in Sources */,
+				0E28E41929C59D2200E6A426 /* Palette.swift in Sources */,
 				0E46EA7A29BD8E4C00F0A293 /* MenuBarContentView.swift in Sources */,
 				0E45029929B7DAF0005F15DE /* ColorPickerApp.swift in Sources */,
 				0E46EA7C29BD8F5100F0A293 /* Constants.swift in Sources */,

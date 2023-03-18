@@ -1,5 +1,5 @@
 import CoreData
-import Cocoa
+import AppKit.NSColor
 
 class CDColor: NSManagedObject {
     static let separator = "|"
@@ -18,17 +18,27 @@ class CDColor: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var srgb: String
     @NSManaged var dateAdded: Date
+    @NSManaged var palettes_: NSSet?
     
     var rgba: [Double] {
         Self.components(from: srgb)
     }
     
-    convenience init(srgb: String, name: String, context: NSManagedObjectContext) {
+    convenience init(srgb: String, name: String, palettes: Set<Palette> = [], context: NSManagedObjectContext) {
         self.init(context: context)
         
         self.srgb = srgb
         self.name = name
+        self.palettes_ = NSSet(set: palettes)
         self.dateAdded = Date()
+    }
+    
+    var palettes: Set<Palette> {
+        palettes_?.reduce(into: Set<Palette>(), { paletteSet, object in
+            if let palette = object as? Palette {
+                paletteSet.insert(palette)
+            }
+        }) ?? []
     }
     
     var red: Double {

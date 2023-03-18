@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CDColor" representedClassName=".CDColor" syncable="YES">
         <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="srgb" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <relationship name="palettes_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Palette" inverseName="colors_" inverseEntity="Palette"/>
+    </entity>
+    <entity name="ExportFormat" representedClassName=".ExportFormat" syncable="YES">
+        <attribute name="expression" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Palette" representedClassName=".Palette" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="colors_" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CDColor" inverseName="palettes_" inverseEntity="CDColor"/>
     </entity>
 </model>
