@@ -32,7 +32,7 @@ Todo:
 
 <h3 id="install">Installation</h3>
 
-1. Download the latest release from the [Releases](./releases) page.
+1. Download the latest release from the [Releases](../../releases) page.
 2. Unzip the downloaded file.
 3. Drag the ColorPicker.app to the Applications folder.
 4. Open ColorPicker.app from your Applications folder or Spotlight
