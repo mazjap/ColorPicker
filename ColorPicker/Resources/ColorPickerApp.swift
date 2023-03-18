@@ -18,7 +18,7 @@ struct ColorPickerApp: App {
                 .frame(maxWidth: 360, maxHeight: 200)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         } label: {
-            image(forSystemName: "paintpalette.fill", with: NSColor(mostRecentColor))
+            image(forSystemName: "paintpalette.fill", with: try? NSColor(mostRecentColor))
         }
         .menuBarExtraStyle(.window)
     }

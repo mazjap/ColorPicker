@@ -1,53 +1,65 @@
 import Cocoa
 
 extension NSColor {
-    convenience init?(_ hexString: String) {
-        guard !hexString.isEmpty else { return nil }
+    enum HexError: Error {
+        case unsupportedLength(length: Int)
+        case unsupportedCharacter(String)
+    }
+    
+    convenience init(_ hexString: String) throws {
+        guard !hexString.isEmpty else {
+            throw HexError.unsupportedLength(length: 0)
+        }
         
         let withoutPound = String(hexString[(hexString.first == "#"
              ? hexString.index(after: hexString.startIndex)
-             : hexString.startIndex)...])
-            .uppercased()
+             : hexString.startIndex)...]).uppercased()
         
         switch withoutPound.count {
         case 2:
-            self.init(withoutPound + withoutPound + withoutPound + "FF")
-            return
+            try self.init(withoutPound + withoutPound + withoutPound + "FF")
         case 3:
-            self.init(withoutPound + "F")
-            return
+            try self.init(withoutPound + "F")
         case 4:
-            let rStr = withoutPound[withoutPound.startIndex]
-            let gStr = withoutPound[withoutPound.index(after: withoutPound.startIndex)]
-            let bStr = withoutPound[withoutPound.index(withoutPound.startIndex, offsetBy: 2)]
-            let aStr = withoutPound[withoutPound.index(withoutPound.startIndex, offsetBy: 3)]
+            let r = withoutPound[withoutPound.startIndex]
+            let g = withoutPound[withoutPound.index(after: withoutPound.startIndex)]
+            let b = withoutPound[withoutPound.index(withoutPound.startIndex, offsetBy: 2)]
+            let a = withoutPound[withoutPound.index(withoutPound.startIndex, offsetBy: 3)]
             
-            self.init("\(rStr)\(rStr)\(gStr)\(gStr)\(bStr)\(bStr)\(aStr)\(aStr)")
-            return
+            try self.init("\(r)\(r)\(g)\(g)\(b)\(b)\(a)\(a)")
         case 6:
-            self.init(withoutPound + "FF")
-            return
+            try self.init(withoutPound + "FF")
         case 8:
-            let r, g, b, a: Double
-            
             let rStr = String(withoutPound[..<withoutPound.index(withoutPound.startIndex, offsetBy: 2)])
             let gStr = String(withoutPound[withoutPound.index(withoutPound.startIndex, offsetBy: 2)..<withoutPound.index(withoutPound.startIndex, offsetBy: 4)])
             let bStr = String(withoutPound[withoutPound.index(withoutPound.startIndex, offsetBy: 4)..<withoutPound.index(withoutPound.startIndex, offsetBy: 6)])
             let aStr = String(withoutPound[withoutPound.index(withoutPound.startIndex, offsetBy: 6)...])
-            guard let rInt = UInt8(rStr, radix: 16),
-                  let gInt = UInt8(gStr, radix: 16),
-                  let bInt = UInt8(bStr, radix: 16),
-                  let aInt = UInt8(aStr, radix: 16)
-            else { return nil }
+            
+            guard let rInt = UInt8(rStr, radix: 16) else {
+                throw HexError.unsupportedCharacter(rStr)
+            }
+            
+            guard let gInt = UInt8(gStr, radix: 16) else {
+                throw HexError.unsupportedCharacter(gStr)
+            }
+            
+            guard let bInt = UInt8(bStr, radix: 16) else {
+                throw HexError.unsupportedCharacter(bStr)
+            }
+            
+            guard let aInt = UInt8(aStr, radix: 16) else {
+                throw HexError.unsupportedCharacter(aStr)
+            }
+            
             let max = Double(UInt8.max)
-            r = Double(rInt) / max
-            g = Double(gInt) / max
-            b = Double(bInt) / max
-            a = Double(aInt) / max
+            let r = Double(rInt) / max
+            let g = Double(gInt) / max
+            let b = Double(bInt) / max
+            let a = Double(aInt) / max
             
             self.init(red: r, green: g, blue: b, alpha: a)
         default:
-            return nil
+            throw HexError.unsupportedLength(length: withoutPound.count)
         }
     }
     
