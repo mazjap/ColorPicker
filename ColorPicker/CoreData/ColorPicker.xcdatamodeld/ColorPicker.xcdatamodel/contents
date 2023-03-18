@@ -3,6 +3,6 @@
     <entity name="CDColor" representedClassName=".CDColor" syncable="YES">
         <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="rgb" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
+        <attribute name="srgb" optional="YES" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformerName" customClassName="[Double]"/>
     </entity>
 </model>

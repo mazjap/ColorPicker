@@ -2,6 +2,7 @@ import SwiftUI
 
 @main
 struct ColorPickerApp: App {
+    @StateObject private var colorManager = ColorManager()
     @AppStorage(Constants.recentColorKey) private var mostRecentColor: String = "#FFFFFF"
     @State private var currentNumber: String = "1"
     private let persistenceController = Persistence.shared
@@ -10,6 +11,7 @@ struct ColorPickerApp: App {
         WindowGroup {
             Text("ContentView not implemented")
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(colorManager)
         }
         
         MenuBarExtra {
@@ -17,6 +19,7 @@ struct ColorPickerApp: App {
                 .cornerRadius(5)
                 .frame(maxWidth: 360, maxHeight: 200)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(colorManager)
         } label: {
             image(forSystemName: "paintpalette.fill", with: try? NSColor(mostRecentColor))
         }

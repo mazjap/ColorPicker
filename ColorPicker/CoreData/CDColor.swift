@@ -2,34 +2,49 @@ import CoreData
 import Cocoa
 
 class CDColor: NSManagedObject {
+    static let separator = "|"
+    static func srgbFrom(color: NSColor) -> String {
+        let color = color.usingColorSpace(.sRGB) ?? color
+        
+        return srgbFrom(red: color.redComponent, green: color.greenComponent, blue: color.blueComponent, alpha: color.alphaComponent)
+    }
+    static func srgbFrom(red: Double, green: Double, blue: Double, alpha: Double) -> String {
+        [red, green, blue, alpha].map { "\($0)" }.joined(separator: separator)
+    }
+    static func components(from srgb: String) -> [Double] {
+        Array((srgb.components(separatedBy: separator).map { Double($0) ?? 0 } + [0, 0, 0, 0]).prefix(upTo: 4))
+    }
+    
     @NSManaged var name: String
-    @NSManaged var rgb: [Double]
+    @NSManaged var srgb: String
     @NSManaged var dateAdded: Date
     
-    convenience init(color: NSColor, context: NSManagedObjectContext) {
+    var rgba: [Double] {
+        Self.components(from: srgb)
+    }
+    
+    convenience init(srgb: String, name: String, context: NSManagedObjectContext) {
         self.init(context: context)
         
-        self.name = color.accessibilityName
-        
-        let color = color.usingColorSpace(.deviceRGB)!
-        self.rgb = [color.redComponent, color.greenComponent, color.blueComponent, color.alphaComponent]
+        self.srgb = srgb
+        self.name = name
         self.dateAdded = Date()
     }
     
     var red: Double {
-        rgb[0]
+        rgba[0]
     }
     var green: Double {
-        rgb[1]
+        rgba[1]
     }
     var blue: Double {
-        rgb[2]
+        rgba[2]
     }
     var alpha: Double {
-        rgb[3]
+        rgba[3]
     }
     
     var color: NSColor {
-        NSColor(red: red, green: green, blue: blue, alpha: alpha)
+        NSColor(srgbRed: red, green: green, blue: blue, alpha: alpha)
     }
 }

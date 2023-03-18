@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MenuBarContentView: View {
+    @EnvironmentObject private var colorManager: ColorManager
     @FetchRequest(sortDescriptors: [SortDescriptor(\CDColor.dateAdded, order: .reverse)])
     private var colors: FetchedResults<CDColor>
     @AppStorage(Constants.recentColorKey) private var mostRecentColor: String = "#FFFFFF"
@@ -31,9 +32,8 @@ struct MenuBarContentView: View {
                     colorSampler.show { color in
                         guard let color else { return }
                         mostRecentColor = color.hexString
-                        _ = CDColor(color: color, context: context)
                         do {
-                            try context.save()
+                            try colorManager.save(color: color, context: context)
                         } catch {
                             print(error)
                             context.reset()

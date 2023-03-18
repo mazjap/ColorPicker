@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E28E41729C58FFA00E6A426 /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E28E41629C58FFA00E6A426 /* ColorManager.swift */; };
 		0E45029929B7DAF0005F15DE /* ColorPickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E45029829B7DAF0005F15DE /* ColorPickerApp.swift */; };
 		0E45029D29B7DAF1005F15DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E45029C29B7DAF1005F15DE /* Assets.xcassets */; };
 		0E4502A029B7DAF1005F15DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E45029F29B7DAF1005F15DE /* Preview Assets.xcassets */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		0E28E41529C5720300E6A426 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0E28E41629C58FFA00E6A426 /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		0E45029529B7DAF0005F15DE /* ColorPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E45029829B7DAF0005F15DE /* ColorPickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerApp.swift; sourceTree = "<group>"; };
 		0E45029C29B7DAF1005F15DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				0E4502A129B7DAF1005F15DE /* Persistence.swift */,
+				0E28E41629C58FFA00E6A426 /* ColorManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				0E45029929B7DAF0005F15DE /* ColorPickerApp.swift in Sources */,
 				0E46EA7C29BD8F5100F0A293 /* Constants.swift in Sources */,
 				0E46EA8629BE4D6700F0A293 /* CDColor.swift in Sources */,
+				0E28E41729C58FFA00E6A426 /* ColorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

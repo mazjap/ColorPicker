@@ -73,4 +73,8 @@ extension NSColor {
         
         return "#\(red)\(green)\(blue)\(alpha)"
     }
+    
+    static var random: NSColor {
+        [NSColor.red, .blue, .green, .purple, .orange, .white, .black, .brown, .clear, .cyan, .gray].randomElement() ?? .magenta
+    }
 }

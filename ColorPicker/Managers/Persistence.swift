@@ -8,7 +8,9 @@ struct Persistence {
         let result = Persistence(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            _ = CDColor(color: NSColor.red, context: viewContext)
+            let color = NSColor.random
+            
+            _ = CDColor(srgb: CDColor.srgbFrom(color: color), name: color.accessibilityName, context: viewContext)
         }
         do {
             try viewContext.save()
