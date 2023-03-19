@@ -9,4 +9,10 @@ class ExportFormat: NSManagedObject {
         self.name = name
         self.expression = expression
     }
+    
+    var format: ColorFormat? {
+        guard let data = expression.data(using: .utf8) else { return nil }
+        
+        return autoreleasepool { try? JSONDecoder().decode(ColorFormat.self, from: data) }
+    }
 }

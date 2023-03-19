@@ -1,4 +1,4 @@
-import Cocoa
+import AppKit.NSColor
 
 extension NSColor {
     enum HexError: Error {
